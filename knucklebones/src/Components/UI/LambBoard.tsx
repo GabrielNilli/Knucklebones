@@ -7,6 +7,7 @@ import ScoreCounter from "./../Boards/Lamb/ScoreCounter";
 import DiceRollButton from "./../Boards/Lamb/DiceRollButton";
 import CharacterPose from "./../Boards/Lamb/CharacterPose";
 import DiceBoard from "./../Boards/Lamb/DiceBoard";
+import type { CoinTossWinner } from "./CoinTossEvent";
 
 import Die1 from "./../Images/Items/DieFaces/Die1.png";
 import Die2 from "./../Images/Items/DieFaces/Die2.png";
@@ -16,9 +17,16 @@ import Die5 from "./../Images/Items/DieFaces/Die5.png";
 import Die6 from "./../Images/Items/DieFaces/Die6.png";
 
 // =================================
+//  INTERFACE
+// =================================
+interface LambBoardProps {
+  activePlayer: CoinTossWinner | null;
+}
+
+// =================================
 //  COMPONENT
 // =================================
-export default function LambBoard() {
+export default function LambBoard({ activePlayer }: LambBoardProps) {
   // =================================
   //  CONSTS
   // =================================
@@ -35,7 +43,7 @@ export default function LambBoard() {
     <>
       <div>
         <ScoreCounter />
-        <DiceRollButton />
+        <DiceRollButton disabled={activePlayer !== "lamb"} />
         <CharacterPose />
         <DiceBoard columns={columns} />
       </div>

@@ -7,6 +7,7 @@ import ScoreCounter from "./../Boards/Goat/ScoreCounter";
 import DiceRollButton from "./../Boards/Goat/DiceRollButton";
 import CharacterPose from "./../Boards/Goat/CharacterPose";
 import DiceBoard from "./../Boards/Goat/DiceBoard";
+import type { CoinTossWinner } from "./CoinTossEvent";
 
 import Die1 from "./../Images/Items/DieFaces/Die1.png";
 import Die2 from "./../Images/Items/DieFaces/Die2.png";
@@ -16,9 +17,16 @@ import Die5 from "./../Images/Items/DieFaces/Die5.png";
 import Die6 from "./../Images/Items/DieFaces/Die6.png";
 
 // =================================
+//  INTERFACE
+// =================================
+interface GoatBoardProps {
+  activePlayer: CoinTossWinner | null;
+}
+
+// =================================
 //  COMPONENT
 // =================================
-export default function GoatBoard() {
+export default function GoatBoard({ activePlayer }: GoatBoardProps) {
   // =================================
   //  CONSTS
   // =================================
@@ -35,7 +43,7 @@ export default function GoatBoard() {
     <>
       <div>
         <ScoreCounter />
-        <DiceRollButton />
+        <DiceRollButton disabled={activePlayer !== "goat"} />
         <CharacterPose />
         <DiceBoard columns={columns} />
       </div>

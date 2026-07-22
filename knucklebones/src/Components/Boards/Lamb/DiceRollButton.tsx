@@ -1,12 +1,23 @@
 // =================================
 //  IMPORTS
 // =================================
+import type { ButtonHTMLAttributes } from "react";
+
 import GenericButton from "./../../UI/GenericButton";
+
+// =================================
+//  INTERFACE
+// =================================
+interface DiceRollButtonProps
+  extends Pick<ButtonHTMLAttributes<HTMLButtonElement>, "disabled" | "onClick"> {}
 
 // =================================
 //  COMPONENT
 // =================================
-export default function DiceRollButton() {
+export default function DiceRollButton({
+  disabled = false,
+  onClick,
+}: DiceRollButtonProps) {
   // =================================
   //  CONSTS
   // =================================
@@ -17,7 +28,9 @@ export default function DiceRollButton() {
   return (
     <>
       <div className="absolute bottom-1/25 place-self-center">
-        <GenericButton variant="primary">Roll</GenericButton>
+        <GenericButton disabled={disabled} onClick={onClick} variant="primary">
+          Roll
+        </GenericButton>
       </div>
     </>
   );
