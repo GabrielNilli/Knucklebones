@@ -6,7 +6,7 @@ import type { ButtonHTMLAttributes, ReactNode } from "react";
 // =================================
 //  TYPE
 // =================================
-type GenericButtonVariant = "primary" | "secondary" | "ghost";
+type GenericButtonVariant = "primary" | "secondary" | "ghost" | "semi";
 
 // =================================
 //  INTERFACE
@@ -46,6 +46,17 @@ const variantClasses: Record<GenericButtonVariant, string> = {
     hover:bg-[#C41E3A]/20
     hover:text-[#C41E3A]
   `,
+  semi: `
+    bg-[#140000]
+    border-[#C41E3A]
+    text-[#C41E3A]
+    shadow-[0_4px_6px_rgba(196,30,58,0.2)]
+    hover:bg-[#8B0000]
+    hover:text-white
+    hover:shadow-[0_6px_12px_rgba(196,30,58,0.4)]
+    rotate-90
+    rounded-t-full
+    `,
 };
 
 // =================================

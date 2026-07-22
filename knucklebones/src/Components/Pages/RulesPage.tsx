@@ -5,6 +5,9 @@ import GenericButton from "./../UI/GenericButton";
 import { useNavigate } from "react-router";
 import ScoresTable from "./../UI/ScoresTable";
 import ForneusIdle from "./../Images/Characters/Forneus/ForneusIdle.gif";
+import Crown from "./../Images/Items/Misc/Crown.webp";
+import Sword from "./../Images/Items/Misc/Sword.webp";
+import RuneBG from "./../UI/RuneBG";
 
 // =================================
 //  COMPONENT
@@ -19,11 +22,13 @@ export default function RulesPage() {
   //  RENDER
   // =================================
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white p-6 md:p-12 flex flex-col items-center justify-start">
-      <div className="w-full max-w-3xl space-y-8">
+    <div className="relative min-h-screen bg-[#0a0a0a] text-white p-6 md:p-12 flex flex-col items-center justify-start overflow-hidden">
+      <RuneBG count={25} />
+
+      <div className="relative z-10 w-full max-w-3xl space-y-8">
         {/* HEADER */}
         <div className="text-center space-y-4">
-          {/* GIF DEL PERSONAGGIO */}
+          {/* GIF */}
           <div className="flex justify-center mb-3">
             <img
               src={ForneusIdle}
@@ -96,7 +101,10 @@ export default function RulesPage() {
         {/* COMBAT & VICTORY */}
         <div className="space-y-6 text-gray-200 font-mono leading-relaxed text-sm md:text-base">
           <div className="flex gap-4 items-start">
-            <span className="text-[#E63946] text-2xl mt-1">⚔️</span>
+            <img
+              src={Sword}
+              className="h-12 mt-1 drop-shadow-[0_0_15px_rgba(181,42,46,1)]"
+            />
             <p>
               <span className="text-white font-bold">Destruction:</span> When a
               player places a die, all dice of the{" "}
@@ -108,7 +116,10 @@ export default function RulesPage() {
           </div>
 
           <div className="flex gap-4 items-start">
-            <span className="text-[#E63946] text-2xl mt-1">🏆</span>
+            <img
+              src={Crown}
+              className="h-12 mt-1 drop-shadow-[0_0_15px_rgba(181,42,46,1)]"
+            />
             <p>
               <span className="text-white font-bold">Victory:</span> The game
               ends when either player completely fills up their 3x3 board. The
