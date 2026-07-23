@@ -25,6 +25,7 @@ export default function GamePage() {
   const [lastRollPlayer, setLastRollPlayer] = useState<CoinTossWinner | null>(
     null,
   );
+  const isWaitingColumnSelection = dieResult !== null;
 
   // =================================
   //  FUNCITONS
@@ -39,7 +40,7 @@ export default function GamePage() {
 
     setDieResult(roll);
     setLastRollPlayer(activePlayer);
-    console.log(activePlayer + " rolled a " + roll);
+    // console.log(activePlayer + " rolled a " + roll);
     setCoinTossResult(activePlayer === "lamb" ? "goat" : "lamb");
   }
 
@@ -61,12 +62,16 @@ export default function GamePage() {
           activePlayer={activePlayer}
           handlePlayerRoll={handlePlayerRoll}
           dieResult={lastRollPlayer === "goat" ? dieResult : null}
+          setDieResult={setDieResult}
+          isWaitingColumnSelection={isWaitingColumnSelection}
         />
         <DividerAndButton />
         <LambBoard
           activePlayer={activePlayer}
           handlePlayerRoll={handlePlayerRoll}
           dieResult={lastRollPlayer === "lamb" ? dieResult : null}
+          setDieResult={setDieResult}
+          isWaitingColumnSelection={isWaitingColumnSelection}
         />
       </div>
     </>

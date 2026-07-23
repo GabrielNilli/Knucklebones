@@ -1,7 +1,25 @@
 // =================================
+//  INTERFACE
+// =================================
+interface DiceColumn {
+  id: number;
+  dice: number[];
+}
+
+interface DiceBoardProps {
+  columns: DiceColumn[];
+  dieFaces: string[];
+  handleColumnSelection: (columnId: number) => void;
+}
+
+// =================================
 //  COMPONENT
 // =================================
-export default function DiceBoard({ columns }) {
+export default function DiceBoard({
+  columns,
+  dieFaces,
+  handleColumnSelection,
+}: DiceBoardProps) {
   // =================================
   //  RENDER
   // =================================
@@ -16,13 +34,18 @@ export default function DiceBoard({ columns }) {
               className="flex-1 bg-[#292E34] border-2 border-[#B52A2E]/40 rounded-lg p-2 flex flex-col items-center"
             >
               {/* Dice tray */}
-              <div className="w-full flex-1 bg-[#0a0a0a]/30 rounded border border-[#B52A2E]/20">
+              <div
+                className="w-full flex-1 bg-[#0a0a0a]/30 rounded border border-[#B52A2E]/20"
+                onClick={() => {
+                  handleColumnSelection(column.id);
+                }}
+              >
                 {column.dice.length > 0 ? (
-                  column.dice.map((diceImg, index) => (
+                  column.dice.map((dieValue, index) => (
                     <img
                       key={index}
-                      src={diceImg}
-                      alt={`Face ${index + 1}`}
+                      src={dieFaces[dieValue - 1]}
+                      alt={`Face ${dieValue}`}
                       className="w-16 h-16 object-contain"
                     />
                   ))
