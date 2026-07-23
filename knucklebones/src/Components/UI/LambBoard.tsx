@@ -21,20 +21,29 @@ import Die6 from "./../Images/Items/DieFaces/Die6.png";
 // =================================
 interface LambBoardProps {
   activePlayer: CoinTossWinner | null;
+  handlePlayerRoll: () => void;
+  dieResult: number | null;
 }
 
 // =================================
 //  COMPONENT
 // =================================
-export default function LambBoard({ activePlayer }: LambBoardProps) {
+export default function LambBoard({
+  activePlayer,
+  handlePlayerRoll,
+  dieResult,
+}: LambBoardProps) {
   // =================================
   //  CONSTS
   // =================================
-  const [columns, setColumns] = useState([
-    { id: 1, dice: [Die1, Die2, Die3] },
-    { id: 2, dice: [Die3, Die4, Die5] },
-    { id: 3, dice: [Die6] },
-  ]);
+  const dieFaces = [Die1, Die2, Die3, Die4, Die5, Die6];
+  const die = dieResult ? dieFaces[dieResult - 1] : null;
+
+  const columns = [
+    { id: 1, dice: [] },
+    { id: 2, dice: [] },
+    { id: 3, dice: [] },
+  ];
 
   // =================================
   //  RENDER
@@ -43,9 +52,12 @@ export default function LambBoard({ activePlayer }: LambBoardProps) {
     <>
       <div>
         <ScoreCounter />
-        <DiceRollButton disabled={activePlayer !== "lamb"} />
-        <CharacterPose />
-        <DiceBoard columns={columns} />
+        <DiceRollButton
+          disabled={activePlayer !== "lamb"}
+          onClick={handlePlayerRoll}
+        />
+        <CharacterPose dieResult={dieResult} />
+        <DiceBoard columns={columns} die={die} />
       </div>
     </>
   );

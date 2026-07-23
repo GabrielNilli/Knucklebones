@@ -8,14 +8,16 @@ import GenericButton from "./../../UI/GenericButton";
 // =================================
 //  INTERFACE
 // =================================
-interface DiceRollButtonProps
-  extends Pick<ButtonHTMLAttributes<HTMLButtonElement>, "disabled" | "onClick"> {}
+interface DiceRollButtonProps extends Pick<
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  "disabled" | "onClick"
+> {}
 
 // =================================
 //  COMPONENT
 // =================================
 export default function DiceRollButton({
-  disabled = false,
+  disabled,
   onClick,
 }: DiceRollButtonProps) {
   // =================================

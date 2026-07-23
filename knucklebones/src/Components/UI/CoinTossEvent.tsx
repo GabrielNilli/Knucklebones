@@ -139,7 +139,7 @@ export default function CoinTossEvent({ onResult }: CoinTossEventProps) {
               hover:shadow-[0_0_30px_rgba(181,42,46,0.8)]
               transition-all duration-300 hover:scale-105"
           >
-            Toss Coin
+            Toss
           </button>
         )}
 
