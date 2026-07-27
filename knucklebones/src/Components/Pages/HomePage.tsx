@@ -35,7 +35,7 @@ export default function HomePage() {
             alt="Knucklebones"
             className="-my-8 w-[88vw] max-w-[620px] object-contain drop-shadow-[0_0_15px_rgba(181,42,46,0.5)] lg:max-h-[42vh] lg:max-w-[680px]"
           />
-          <p className="text-white text-lg mb-8 font-mono">
+          <p className="mb-8 max-w-[90vw] px-4 text-center font-mono text-base text-white sm:text-lg">
             An app inspired by the in-game dice game.
           </p>
           <GenericButton variant="primary" onClick={() => navigate("/game")}>
