@@ -24,9 +24,9 @@ export default function DiceBoard({
   // =================================
   return (
     <>
-      <div className="absolute top-30 left-1/2 rotate-180 transform -translate-x-1/2 bg-[#1a1a1a] border-2 border-solid border-[#B52A2E] rounded-xl p-4 w-[320px] h-[250px] shadow-[0_0_20px_rgba(181,42,46,0.3)]">
+      <div className="absolute top-30 left-1/2 h-[250px] w-[320px] -translate-x-1/2 rotate-180 transform rounded-xl border-2 border-solid border-[#B52A2E] bg-[#1a1a1a] p-4 shadow-[0_0_20px_rgba(181,42,46,0.3)] lg:top-1/2 lg:left-1/4 lg:h-[255px] lg:w-[340px] lg:-translate-y-1/2 lg:rotate-0">
         {/* Columns */}
-        <div className="flex justify-between gap-3 h-[215px]">
+        <div className="flex h-[215px] justify-between gap-3 lg:h-[220px]">
           {columns.map((column) => (
             <div
               key={column.id}
@@ -43,7 +43,7 @@ export default function DiceBoard({
                       key={index}
                       src={dieFaces[dieValue - 1]}
                       alt={`Face ${dieValue}`}
-                      className="w-16 h-16 object-contain"
+                      className="h-16 w-16 object-contain"
                     />
                   ))
                 ) : (

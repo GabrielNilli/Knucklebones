@@ -68,11 +68,11 @@ export default function CharacterPose({ dieResult }: CharacterPoseProps) {
   //  RENDER
   // =================================
   return (
-    <div className="absolute left-1 bottom-8 z-10 h-[136px] w-[136px] md:bottom-4 md:h-[128px] md:w-[128px]">
+    <div className="absolute bottom-8 left-1 z-10 h-[136px] w-[136px] md:bottom-4 md:h-[128px] md:w-[128px] lg:top-1/2 lg:right-auto lg:bottom-auto lg:left-[calc(75%_+_120px)] lg:h-[170px] lg:w-[170px] lg:-translate-y-1/2 xl:left-[calc(75%_+_190px)] lg:rotate-y-180">
       <img
         src={lambPose}
         alt="Lamb Character"
-        className="h-full w-full object-contain scale-x-[-1]"
+        className="h-full w-full scale-x-[-1] object-contain"
       />
     </div>
   );

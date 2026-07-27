@@ -110,13 +110,34 @@ export default function HoldToConfirmButton({
           absolute
           -inset-1
           z-20
-          h-[calc(100%+0.5rem)]
-          w-[calc(100%+0.5rem)]
+          h-[calc(100%_+_0.5rem)]
+          w-[calc(100%_+_0.5rem)]
           overflow-visible
         "
       >
         <path
+          className="lg:hidden"
           d="M 50 2 A 48 48 0 0 1 50 98"
+          pathLength="100"
+          fill="none"
+          stroke="#FF4A50"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeDasharray="100"
+          style={{
+            strokeDashoffset: isHolding ? 0 : 100,
+
+            transition: isHolding
+              ? `stroke-dashoffset ${duration}ms linear`
+              : "stroke-dashoffset 150ms ease-out",
+
+            filter: "drop-shadow(0 0 5px rgba(255, 74, 80, 0.8))",
+          }}
+        />
+
+        <path
+          className="hidden lg:block"
+          d="M 18 8 H 82 Q 92 8 92 18 V 82 Q 92 92 82 92 H 18 Q 8 92 8 82 V 18 Q 8 8 18 8"
           pathLength="100"
           fill="none"
           stroke="#FF4A50"

@@ -1,8 +1,6 @@
 // =================================
 //  IMPORTS
 // =================================
-import { useState } from "react";
-
 import ScoreCounter from "./../Boards/Goat/ScoreCounter";
 import DiceRollButton from "./../Boards/Goat/DiceRollButton";
 import CharacterPose from "./../Boards/Goat/CharacterPose";
@@ -23,9 +21,11 @@ import Die6 from "./../Images/Items/DieFaces/Die6.png";
 interface GoatBoardProps {
   activePlayer: CoinTossWinner | null;
   handlePlayerRoll: () => void;
+  handleColumnSelection: (columnId: number) => void;
   dieResult: number | null;
-  setDieResult: any;
   isWaitingColumnSelection: boolean;
+  goatColumns: DiceColumn[];
+  goatScore: number;
 }
 
 interface DiceColumn {
@@ -39,9 +39,11 @@ interface DiceColumn {
 export default function GoatBoard({
   activePlayer,
   handlePlayerRoll,
+  handleColumnSelection,
   dieResult,
-  setDieResult,
   isWaitingColumnSelection,
+  goatColumns,
+  goatScore,
 }: GoatBoardProps) {
   // =================================
   //  CONSTS
@@ -49,54 +51,20 @@ export default function GoatBoard({
   const dieFaces = [Die1, Die2, Die3, Die4, Die5, Die6];
   const die = dieResult ? dieFaces[dieResult - 1] : null;
 
-  const [columns, setColumns] = useState<DiceColumn[]>([
-    { id: 1, dice: [] },
-    { id: 2, dice: [] },
-    { id: 3, dice: [] },
-  ]);
-
-  // =================================
-  //  FUNCTIONS
-  // =================================
-  function handleColumnSelection(columnId: number) {
-    if (dieResult === null) {
-      return;
-    }
-
-    setColumns((currentColumns) =>
-      currentColumns.map((column) => {
-        if (column.id !== columnId) {
-          return column;
-        }
-
-        if (column.dice.length >= 3) {
-          return column;
-        }
-
-        setDieResult(null);
-
-        return {
-          ...column,
-          dice: [...column.dice, dieResult],
-          die: null,
-        };
-      }),
-    );
-  }
   // =================================
   //  RENDER
   // =================================
   return (
     <>
       <div>
-        <ScoreCounter />
+        <ScoreCounter goatScore={goatScore} />
         <DiceRollButton
           disabled={activePlayer !== "goat" || isWaitingColumnSelection}
           onClick={handlePlayerRoll}
         />
         <CharacterPose dieResult={dieResult} />
         <DiceBoard
-          columns={columns}
+          columns={goatColumns}
           dieFaces={dieFaces}
           handleColumnSelection={handleColumnSelection}
         />

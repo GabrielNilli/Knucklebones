@@ -63,7 +63,7 @@ export default function CoinTossEvent({ onResult }: CoinTossEventProps) {
 
   return (
     <div className="fixed inset-0 z-50 bg-[#0a0a0a]/95 flex flex-col items-center justify-center">
-      <div className="relative z-10 flex rotate-90 flex-col items-center justify-center">
+      <div className="relative z-10 flex rotate-90 flex-col items-center justify-center lg:rotate-0">
         {/* Titolo */}
         <h2 className="mb-2 text-2xl font-bold text-[#B52A2E] font-mono uppercase tracking-widest animate-pulse md:mb-12 md:text-6xl">
           Coin Toss

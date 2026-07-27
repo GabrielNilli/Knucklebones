@@ -68,11 +68,11 @@ export default function CharacterPose({ dieResult }: CharacterPoseProps) {
   //  RENDER
   // =================================
   return (
-    <div className="absolute right-1 top-8 z-10 h-[136px] w-[136px] md:bottom-4 md:h-[128px] md:w-[128px]">
+    <div className="absolute top-8 right-1 z-10 h-[136px] w-[136px] md:bottom-4 md:h-[128px] md:w-[128px] lg:top-1/2 lg:right-auto lg:left-[calc(25%_-_260px)] lg:h-[170px] lg:w-[170px] lg:-translate-y-1/2 xl:left-[calc(25%_-_340px)]">
       <img
         src={goatPose}
         alt="Goat Character"
-        className="h-full w-full object-contain rotate-180"
+        className="h-full w-full rotate-180 object-contain lg:rotate-0 lg:scale-x-100"
       />
     </div>
   );

@@ -18,22 +18,26 @@ export default function ScoresTable() {
   //  RENDER
   // =================================
   return (
-    <div className="w-full max-w-md mx-auto overflow-hidden rounded-xl shadow-2xl border border-[#B52A2E]/30 bg-[#1a1a1a]">
-      <div className="overflow-x-auto">
-        <table className="w-full border-collapse text-sm font-mono">
+    <div className="mx-auto w-full max-w-md overflow-hidden rounded-xl border border-[#B52A2E]/30 bg-[#1a1a1a] shadow-2xl">
+      <div className="w-full overflow-hidden">
+        <table className="w-full table-fixed border-collapse font-mono text-xs sm:text-sm">
           <thead>
-            <tr className="bg-[#B52A2E] text-white uppercase tracking-widest text-xs font-bold">
-              <th scope="col" className="px-6 py-4 text-left">
-                Die Value
+            <tr className="bg-[#B52A2E] text-xs font-bold tracking-wide text-white uppercase sm:tracking-widest">
+              <th scope="col" className="px-2 py-3 text-left md:px-6 md:py-4">
+                <span className="sm:hidden">Die</span>
+                <span className="hidden sm:inline">Die Value</span>
               </th>
-              <th scope="col" className="px-6 py-4 text-center">
-                1 Die
+              <th scope="col" className="px-2 py-3 text-center md:px-6 md:py-4">
+                <span className="sm:hidden">1</span>
+                <span className="hidden sm:inline">1 Die</span>
               </th>
-              <th scope="col" className="px-6 py-4 text-center">
-                2 Dice
+              <th scope="col" className="px-2 py-3 text-center md:px-6 md:py-4">
+                <span className="sm:hidden">2</span>
+                <span className="hidden sm:inline">2 Dice</span>
               </th>
-              <th scope="col" className="px-6 py-4 text-center">
-                3 Dice
+              <th scope="col" className="px-2 py-3 text-center md:px-6 md:py-4">
+                <span className="sm:hidden">3</span>
+                <span className="hidden sm:inline">3 Dice</span>
               </th>
             </tr>
           </thead>
@@ -48,12 +52,18 @@ export default function ScoresTable() {
                   hover:bg-[#B52A2E]/20 hover:cursor-default
                 `}
               >
-                <td className="px-6 py-4 font-bold text-[#E63946]">
+                <td className="px-2 py-3 font-bold text-[#E63946] md:px-6 md:py-4">
                   {row.value}
                 </td>
-                <td className="px-6 py-4 text-center">{row.one}</td>
-                <td className="px-6 py-4 text-center">{row.two}</td>
-                <td className="px-6 py-4 text-center">{row.three}</td>
+                <td className="px-2 py-3 text-center md:px-6 md:py-4">
+                  {row.one}
+                </td>
+                <td className="px-2 py-3 text-center md:px-6 md:py-4">
+                  {row.two}
+                </td>
+                <td className="px-2 py-3 text-center md:px-6 md:py-4">
+                  {row.three}
+                </td>
               </tr>
             ))}
           </tbody>

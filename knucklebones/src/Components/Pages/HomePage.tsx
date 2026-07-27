@@ -2,7 +2,7 @@
 //  IMPORTS
 // =================================
 import LambHomePage from "./../Images/Home/LambHomePage.webp";
-import knucklebonesLogoText from "./../Images/Home/knucklebonesLogoText.webp";
+import KnuckleBonesLogo from "./../Images/Home/KnuckleBonesLogo.png";
 import GenericButton from "./../UI/GenericButton";
 import RuneBG from "./../UI/RuneBG";
 import { useNavigate } from "react-router";
@@ -28,9 +28,13 @@ export default function HomePage() {
           <img
             src={LambHomePage}
             alt="Lamb"
-            className="mb-8 drop-shadow-[0_0_15px_rgba(181,42,46,0.5)]"
+            className="mb-6 w-40 object-contain drop-shadow-[0_0_15px_rgba(181,42,46,0.5)] w-62 lg:w-56"
           />
-          <img src={knucklebonesLogoText} alt="Knucklebones" className="mb-6" />
+          <img
+            src={KnuckleBonesLogo}
+            alt="Knucklebones"
+            className="-my-8 w-[88vw] max-w-[620px] object-contain drop-shadow-[0_0_15px_rgba(181,42,46,0.5)] lg:max-h-[42vh] lg:max-w-[680px]"
+          />
           <p className="text-white text-lg mb-8 font-mono">
             An app inspired by the in-game dice game.
           </p>

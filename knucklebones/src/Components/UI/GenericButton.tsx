@@ -55,6 +55,8 @@ const variantClasses: Record<GenericButtonVariant, string> = {
     hover:text-white
     hover:shadow-[0_6px_12px_rgba(196,30,58,0.4)]
     rotate-90
+    lg:rotate-0
+    lg:rounded-lg
     rounded-t-full
     `,
 };
