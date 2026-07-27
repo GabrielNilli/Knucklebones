@@ -5,8 +5,6 @@ import { useState, useEffect } from "react";
 import LambIdle from "./../../Images/Characters/Lamb/LambIdle.gif";
 import LambHappy from "./../../Images/Characters/Lamb/LambHappy.gif";
 import LambHangry from "./../../Images/Characters/Lamb/LambHangry.gif";
-import LambLose from "./../../Images/Characters/Lamb/LambLose.gif";
-import LambWin from "./../../Images/Characters/Lamb/LambWin.gif";
 
 // =================================
 //  INTERFACE

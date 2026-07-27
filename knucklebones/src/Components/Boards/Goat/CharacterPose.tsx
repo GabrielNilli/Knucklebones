@@ -5,8 +5,6 @@ import { useEffect, useState } from "react";
 import GoatIdle from "./../../Images/Characters/Goat/GoatIdle.gif";
 import GoatHappy from "./../../Images/Characters/Goat/GoatlHappy.gif";
 import GoatHangry from "./../../Images/Characters/Goat/GoatHangry.gif";
-import GoatLose from "./../../Images/Characters/Goat/GoatLose.gif";
-import GoatWin from "./../../Images/Characters/Goat/GoatWin.gif";
 
 // =================================
 //  INTERFACE
